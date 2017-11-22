@@ -5,7 +5,12 @@ import org.apache.log4j.AppenderSkeleton;
 import org.apache.log4j.spi.LoggingEvent;
 
 /**
- * 自定义实现log4j的输出源
+ * 自定义实现log4j的输出源<br/>
+ * 
+ * 调用Log4j输出日志时，调用各个组件的顺序: <br/>
+ * 1、日志信息传入 Logger。<br/>
+ * 2、将日志信息封装成 LoggingEvent 对象并传入 Appender。 <br/>
+ * 3、在 Appender 中调用 Filter 对日志信息进行过滤，调用 Layout 对日志信息进行格式化，然后输出
  */
 public class GwarnLog4jAppender extends AppenderSkeleton {
 
@@ -21,6 +26,7 @@ public class GwarnLog4jAppender extends AppenderSkeleton {
 	public void close() {
 	}
 
+	// 是否需要按格式输出文本
 	@Override
 	public boolean requiresLayout() {
 		return false;

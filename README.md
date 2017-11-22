@@ -1,5 +1,11 @@
 # warn-util
-一个报警器工具
+一个报警器工具：只是实现了报警池部分，报警池可以将数据异步输出到其他系统，由其他专门的报警系统来进行警报的管理和统计
+即：// 报警接口，将搜集的报警推送到某个系统，由某个系统继续具体的报警发放（需要自己实现）
+  	static final String WARN_URL = "http://warn.xxx.com/ws/receive/receive.do";
+  	// 消息发送接口，将报警发送到某个地方，比如发送QQ、邮件等（需要自己实现）
+  	static final String SEND_MSG_URL = "http://warn.yyy.com/msg/send.do";
+  	这2个接口需要自行构造系统实现
+  	
     1、作用：
         1.1、可以监控业务和系统的运行情况
         2.1、在日志中加入报警输出源，可以监控上报系统中的异常情况
